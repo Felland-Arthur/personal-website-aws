@@ -23,6 +23,10 @@ This project demonstrates my ability to:
 
 ![Architecture Diagram](docs/architecture-diagram.png)
 
+## 🏗️ Architecture
+
+For detailed architecture diagram and data flow, see: [Architecture Documentation](docs/architecture-diagram.md)
+
 **Components:**
 - **Amazon S3**: Private bucket for website content storage
 - **CloudFront**: Global CDN with HTTPS enforcement
