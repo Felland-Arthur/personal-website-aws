@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Personal Portfolio Website on AWS
 
 ![AWS](https://img.shields.io/badge/AWS-CloudFront-orange?logo=amazonaws)
@@ -37,3 +38,7 @@ This project demonstrates my ability to:
 - **Web Technologies**: HTML5, CSS3, JavaScript
 
 ## 📁 Project Structure
+=======
+# personal-website-aws
+My personal portfolio website deployed on AWS using S3, CloudFront, and Route53
+>>>>>>> 8fe0027cd6fab41809894c9e9b5a02fce10b9561
