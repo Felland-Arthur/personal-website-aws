@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felland Arthur Koumbadinga - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a192f;
+            --text-color: #e6f1ff;
+            --accent-color: #64ffda;
+            --border-color: #233554;
+            --section-bg: #112240;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-bottom: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .section {
+            display: none;
+            padding: 30px;
+            background-color: var(--section-bg);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .profile-image {
+            flex: 0 0 200px;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text a {
+            color: var(--accent-color) !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .about-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .education-item, .experience-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .education-title, .experience-title, .project-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+        
+        .education-subtitle, .education-date, .experience-date {
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .education-details {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .education-details li {
+            margin-bottom: 8px;
+        }
+        
+        .line-break {
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 20px 0;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skills-category {
+            background-color: rgba(17, 34, 64, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .skills-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .skills-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        .transferable-skills li {
+            margin-bottom: 15px;
+        }
+        
+        .transferable-skills strong {
+            color: var(--accent-color);
+        }
+        
+        .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .project-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        
+        .project-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .tech-tag {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Felland Arthur Koumbadinga</h1>
+            <p>Cloud Engineer | AWS Specialist</p>
+            <nav>
+                <ul>
+                    <li><a href="#about" onclick="showSection('about')">About</a></li>
+                    <li><a href="#education" onclick="showSection('education')">Education</a></li>
+                    <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
+                    <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+                    <li><a href="#certifications" onclick="showSection('certifications')">Certifications</a></li>
+                    <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="about" class="section active">
+                <h2>About</h2>
+                <div class="about-content">
+                    <div class="profile-image">
+                        <img src="images/profile-placeholder.png" alt="Felland Arthur" id="profile-image">
+                    </div>
+                    <div class="about-text">
+                        <p>Hi, I am Felland, a cloud engineer specializing in AWS solutions and DevOps practices. With a background in Mechanical Engineering and experience solving technical problems and optimizing systems, I have become passionate about building scalable, modern and secure solutions using technology. Skilled in deploying and supporting applications in the cloud, building CI/CD pipelines, and working with DevOps tools. Fast learner with the ability to adapt with ease. Seeking a role in Cloud Engineering, DevOps or similar. </p>
+                        <br>
+                        <p><a href="https://linkedin.com/in/arthur-felland" target="_blank">LinkedIn</a></p>
+                        <br>
+                        <p><a href="https://github.com/arthurfelland" target="_blank">GitHub</a></p>
+                        <br>
+                        <p><a href="mailto:arthurfelland@gmail.com">arthurfelland@gmail.com</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="section">
+                <h2>Education</h2>
+                <div class="education-item"> 
+                    <div class="education-title">AWS Cloud Application | Developer Program</div>
+                    <div class="education-subtitle">AWS Cloud Institute</div>
+                    <div class="education-date">07/2025 - Present</div>
+                    <ul class="education-details">
+                        <li>Designed and implemented scalable, high availability architectures using AWS services such as EC2, RDS, DynamoDB, S3, IAM, Redshift, and CloudFront to optimize performance and reliability.</li>
+                        <li>Built and secured network architectures with VPCs, subnets, route tables, and security groups, ensuring compliance with security best practices.</li>
+                        <li>Automated cloud infrastructure and application deployments using CI/CD pipelines (AWS CodePipeline, CodeBuild and CodeDeploy) to improve efficiency, consistency, and release management.</li>
+                        <li>Developed serverless applications with AWS Lambda, API Gateway, and DynamoDB, optimizing cost efficiency and scalability.</li>
+                        <li>Gained hands-on experience through 100+ interactive AWS Labs and two capstone projects, applying cloud architecture and DevOps best practices in real-world scenarios.</li>
+                        <li>Integrated AI/ML services such as Amazon SageMaker, Rekognition, and AWS Bedrock, exploring AI-powered automation predictive analysis, and natural language processing in cloud applications.</li>
+                    </ul>
+                </div>
+                
+                <div class="line-break"></div>
+                
+                <div class="education-item">
+                    <div class="education-title">Mechanical Engineering</div>
+                    <div class="education-subtitle">Harbin Institute of Technology</div>
+                    <div class="education-date">09/2011 - 07/2014</div>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <div class="skills-category">
+                        <h3>Technical Skills</h3>
+                        <ul class="skills-list">
+                            <li><strong>AWS Services:</strong> EC2, S3, RDS, DynamoDB, IAM, Lambda, VPC, CloudFront, CloudWatch, CodePipeline</li>
+                            <li><strong>Automation & Infrastructure as Code:</strong> Terraform, CloudFormation, Bash, Python, PowerShell</li>
+                            <li><strong>CI/CD & Version Control:</strong> Git, GitHub, CodeCommit, CodeBuild, CodeDeploy</li>
+                            <li><strong>Containers:</strong> Docker, ECS/EKS (Fargate)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <h3>Transferable Skills</h3>
+                        <ul class="skills-list transferable-skills">
+                            <li><strong>Problem Solving:</strong> Strong analytical and troubleshooting skills developed through mechanical engineering background. Ability to break down complex problems and implement systematic solutions.</li>
+                            <li><strong>Adaptability:</strong> Successfully transitioned from mechanical engineering to cloud technology. Quick learner who thrives in dynamic environments and embraces new technologies.</li>
+                            <li><strong>Collaboration:</strong> Effective communication with experience working in cross-functional teams.</li>
+                            <li><strong>Project Management:</strong> Ability to manage multiple projects simultaneously, prioritize tasks effectively, and deliver results within deadlines.</li>
+                            <li><strong>Continuous Improvement:</strong> Committed to ongoing learning and professional development. Always seeking ways to optimize processes and enhance system performance.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <h3>Languages</h3>
+                        <ul class="skills-list">
+                            <li>English</li>
+                            <li>French</li>
+                            <li>Chinese</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2>Projects</h2>
+                <div class="project-item">
+                    <div class="project-title">
+                        <span>Personal Website Hosting on AWS</span>
+                        <a href="https://github.com/arthurfelland/personal-website-aws" target="_blank" class="project-link">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View on GitHub
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Amazon S3</span>
+                        <span class="tech-tag">CloudFront</span>
+                        <span class="tech-tag">Route 53</span>
+                        <span class="tech-tag">CloudWatch</span>
+                        <span class="tech-tag">CloudFormation</span>
+                    </div>
+                    <ul class="education-details">
+                        <li>Deployed a static personal website on Amazon S3 for cost-effective, scalable hosting with 99.9% availability</li>
+                        <li>Configured Amazon CloudFront for global content delivery, reducing latency by 60% for international users</li>
+                        <li>Implemented AWS Route 53 for DNS management with custom domain configuration</li>
+                        <li>Set up CloudWatch alarms and dashboards to monitor website traffic and performance metrics</li>
+                        <li>Automated infrastructure deployment using CloudFormation for reproducible and version-controlled environments</li>
+                        <li>Implemented security best practices including S3 bucket policies and HTTPS enforcement</li>
+                    </ul>
+                </div>
+                
+                <div class="line-break"></div>
+                
+                <div class="project-item">
+                    <div class="project-title">
+                        <span>AWS Budget Alerts with Terraform</span>
+                        <a href="https://github.com/arthurfelland/aws-budget-alerts" target="_blank" class="project-link">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View on GitHub
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS Budgets</span>
+                        <span class="tech-tag">SNS</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">CloudWatch</span>
+                    </div>
+                    <ul class="education-details">
+                        <li>Implemented automated AWS cost monitoring with budget alerts triggered at 80% of allocated budget</li>
+                        <li>Configured Amazon SNS for email notifications with customizable templates</li>
+                        <li>Developed Terraform modules for reusable budget configurations across multiple AWS accounts</li>
+                        <li>Integrated with CloudWatch for comprehensive cost visualization and historical trend analysis</li>
+                        <li>Reduced unexpected cloud spending by 95% through proactive budget monitoring and alerts</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="certifications" class="section">
+                <h2>Certifications</h2>
+                <ul class="education-details">
+                    <li>AWS Certified Cloud Practitioner</li>
+                    <li>AWS Certified Solutions Architect (In Progress)</li>
+                </ul>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contact</h2>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> <a href="mailto:arthurfelland@gmail.com">arthurfelland@gmail.com</a></p>
+                    <p><strong>Phone:</strong> +1 (312) 868-4302</p>
+                    <p><strong>Address:</strong> 6030 N Sheridan Rd, Chicago, IL 60660</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arthur-felland" target="_blank">linkedin.com/in/arthur-fell</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/arthurfelland" target="_blank">github.com/arthurfell</a></p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2025 Felland Arthur. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                if (link.getAttribute('href') === '#' + sectionId) {
+                    link.style.borderColor = 'var(--accent-color)';
+                } else {
+                    link.style.borderColor = 'var(--border-color)';
+                }
+            });
+        }
+
+        // Show about section by default
+        window.onload = () => showSection('about');
+    </script>
+</body>
+</html>
