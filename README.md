@@ -8,7 +8,7 @@
 A scalable, secure personal portfolio website deployed on AWS infrastructure using S3, CloudFront, and Route53.
 
 ## 🚀 Live Demo
-[View Live Website](https://your-cloudfront-domain.cloudfront.net) *← Update this URL after deployment*
+[View Live Website](https://d23zzhguv6w26h.cloudfront.net/) 
 
 ## 📋 Project Overview
 
@@ -45,4 +45,4 @@ For detailed architecture diagram and data flow, see: [Architecture Documentatio
 =======
 # personal-website-aws
 My personal portfolio website deployed on AWS using S3, CloudFront, and Route53
->>>>>>> 8fe0027cd6fab41809894c9e9b5a02fce10b9561
+>>>>>>> https://d23zzhguv6w26h.cloudfront.net/
